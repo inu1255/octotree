@@ -7,9 +7,9 @@
       <div class="popup">
         <div class="arrow"></div>
         <div class="content">
-          Octotree is enabled on this page. Click this button or press
+          GitCodeTree已启用。点此
           <kbd>cmd shift s</kbd> (or <kbd>ctrl shift s</kbd>)
-          to show it.
+          显示.
         </div>
       </div>
     </a>
@@ -29,21 +29,21 @@
         <form class="octotree_view_body">
           <div class="message"></div>
           <div>
-            <input name="token" type="text" placeholder="Paste access token here" autocomplete="off">
+            <input name="token" type="text" placeholder="请在这里填写token" autocomplete="off">
           </div>
           <div>
-            <button type="submit" class="btn">Save</button>
-            <a href="https://github.com/buunguyen/octotree#access-token" target="_blank" tabIndex="-1">Why is this required?</a>
+            <button type="submit" class="btn">保存</button>
+            <a href="https://github.com/buunguyen/octotree#access-token" target="_blank" tabIndex="-1">为什么需要填写token?</a>
           </div>
           <div class="error"></div>
         </form>
       </div>
 
       <div class="octotree_view octotree_optsview">
-        <div class="octotree_view_header">Settings</div>
+        <div class="octotree_view_header">设置</div>
         <form class="octotree_view_body">
           <div>
-            <label>Site access token</label>
+            <label>站点token</label>
             <a class="octotree_help" href="https://github.com/buunguyen/octotree#settings" target="_blank" tabIndex="-1">
               <span></span>
             </a>
@@ -52,35 +52,25 @@
 
           <div>
             <div>
-              <label>Hotkeys</label>
+              <label>热键</label>
             </div>
             <input type="text" data-store="HOTKEYS">
           </div>
 
-          <!-- @ifdef CHROME -->
-          <div class="octotree_github_only">
-            <div>
-              <label>GitHub Enterprise URLs</label>
-            </div>
-            <textarea data-store="GHEURLS" placeholder="https://github.mysite1.com__SPACES__https://github.mysite2.com">
-            </textarea>
-          </div>
-          <!-- @endif -->
-
           <div>
-            <label><input type="checkbox" data-store="REMEMBER"> Remember sidebar visibility</label>
+            <label><input type="checkbox" data-store="REMEMBER"> 记住展开/收起状态</label>
           </div>
 
           <div>
-            <label><input type="checkbox" data-store="NONCODE"> Show in non-code pages</label>
+            <label><input type="checkbox" data-store="NONCODE"> 在没有代码的页面也显示</label>
           </div>
 
           <div class="octotree_github_only">
-            <label><input type="checkbox" data-store="LOADALL"> Load entire tree at once</label>
+            <label><input type="checkbox" data-store="LOADALL"> 自动加载</label>
           </div>
 
           <div>
-            <button type="submit" class="btn">Save</button>
+            <button type="submit" class="btn">保存</button>
           </div>
         </form>
       </div>

@@ -58,7 +58,7 @@ class Oschina extends PjaxAdapter {
 
     // @override
     getCreateTokenUrl() {
-        return `${location.protocol}//${location.host}/settings/tokens/new`
+        return `http://git.oschina.net/api/v5/swagger`
     }
 
     // @override
@@ -110,7 +110,7 @@ class Oschina extends PjaxAdapter {
         // Get branch by inspecting page, quite fragile so provide multiple fallbacks
         const branch =
         // Code page
-        $('.branch-select-menu .select-menu-item.selected').data('name') ||
+        $('#git-project-branch .text').text() ||
         // Pull requests page
         ($('.commit-ref.base-ref').attr('title') || ':').match(/:(.*)/)[1] ||
         // Reuse last selected branch if exist
@@ -169,11 +169,11 @@ class Oschina extends PjaxAdapter {
     _get(path, opts, cb) {
         const host = 'http://git.oschina.net/api/v5'
         var url = `${host}/repos/${opts.repo.username}/${opts.repo.reponame}${path || ''}`
-        const cfg = { url, method: 'GET', cache: false }
 
         if (opts.token) {
-            url += (url.endsWith("?") ? "&" : "?") + `access_token=${opts.token}`
+            url += (url.indexOf("?") >= 0 ? "&" : "?") + `access_token=${opts.token}`
         }
+        const cfg = { url, method: 'GET', cache: false }
 
         $.ajax(cfg)
             .done((data) => {
