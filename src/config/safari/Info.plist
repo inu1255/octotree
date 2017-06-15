@@ -41,6 +41,7 @@
 			<array>
 				<string>https://bitbucket.org/*</string>
 				<string>https://github.com/*</string>
+				<string>http://git.oschina.net/*</string>
 			</array>
 		</dict>
 		<key>Description</key>
