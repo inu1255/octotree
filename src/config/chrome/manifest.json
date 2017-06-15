@@ -1,10 +1,10 @@
 {
-  "name": "Octotree",
+  "name": "GitCodeTree",
   "version": "$VERSION",
   "manifest_version": 2,
-  "author": "Buu Nguyen",
-  "description": "Code tree for GitHub",
-  "homepage_url": "https://github.com/buunguyen/octotree",
+  "author": "inu1255",
+  "description": "基于octotree的[码云](http://git.oschina.net)文件树插件",
+  "homepage_url": "http://git.oschina.net/inu1255/GitCodeTree",
   "icons": {
     "128": "icons/icon128.png"
   },
