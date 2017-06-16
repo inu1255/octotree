@@ -370,12 +370,14 @@ class PjaxAdapter extends Adapter {
     selectFile(path, opts) {
         opts = opts || {}
         const $pjaxContainer = opts.$pjaxContainer
+        const fragment = opts.fragment
 
         if ($pjaxContainer.length) {
             $.pjax({
                 // needs full path for pjax to work with Firefox as per cross-domain-content setting
                 url: location.protocol + '//' + location.host + path,
-                container: $pjaxContainer
+                container: $pjaxContainer,
+                fragment: fragment
             })
         } else { // falls back
             super.selectFile(path)

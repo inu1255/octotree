@@ -110,7 +110,7 @@ class Oschina extends PjaxAdapter {
         // Get branch by inspecting page, quite fragile so provide multiple fallbacks
         const branch =
         // Code page
-        $('#git-project-branch .text').text() ||
+        $('#git-project-branch .text').text().trim() ||
         // Pull requests page
         ($('.commit-ref.base-ref').attr('title') || ':').match(/:(.*)/)[1] ||
         // Reuse last selected branch if exist
@@ -135,7 +135,7 @@ class Oschina extends PjaxAdapter {
     // @override
     selectFile(path) {
         const $pjaxContainer = $(OSC_PJAX_CONTAINER_SEL)
-        super.selectFile(path, { '$pjaxContainer': $pjaxContainer })
+        super.selectFile(path, { '$pjaxContainer': $pjaxContainer, fragment: ".git-project-content-wrapper" })
     }
 
     // @override

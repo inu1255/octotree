@@ -325,7 +325,12 @@ jQuery.extend({
 			} else {
 			// Otherwise, avoid the DOM node creation, insertion
 			// and removal by using an indirect global eval
-				indirect( code );
+				try{
+					indirect( code );
+				}
+				catch(e){
+					console.log(e)
+				}
 			}
 		}
 	},
