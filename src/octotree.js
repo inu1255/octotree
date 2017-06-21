@@ -81,6 +81,15 @@ $(document).ready(() => {
             .resize(layoutChanged)
             .appendTo($('body'))
 
+        function aa() {
+            $(".tree-holder a, .breadcrumb_path a").on("click", function() {
+                setTimeout(function() {
+                    tryLoadRepo()
+                    aa()
+                }, 500)
+            })
+        }
+        aa()
         adapter.init($sidebar)
         return tryLoadRepo()
 

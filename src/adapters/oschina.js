@@ -72,6 +72,8 @@ class Oschina extends PjaxAdapter {
         $('html').css('margin-left', shouldPushLeft ? sidebarWidth : '')
         $containers.css('margin-left', shouldPushLeft ? SPACING : '')
         $containers.css('width', shouldPushLeft ? WIDTH : '')
+        $(".ui.right.floated.horizontal.list").css('margin-right', shouldPushLeft ? 210 : '')
+        $(".git-project-download-panel").css('margin-right', shouldPushLeft ? 240 : '')
     }
 
     // @override
