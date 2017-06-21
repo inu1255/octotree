@@ -84,7 +84,7 @@ $(document).ready(() => {
         var prev = location.href
         function aa() {
             setTimeout(function() {
-                if (prev == location.href) {
+                if (prev != location.href) {
                     tryLoadRepo()
                     prev = location.href
                 }
