@@ -81,13 +81,15 @@ $(document).ready(() => {
             .resize(layoutChanged)
             .appendTo($('body'))
 
+        var prev = location.href
         function aa() {
-            $(".tree-holder a, .breadcrumb_path a").on("click", function() {
-                setTimeout(function() {
+            setTimeout(function() {
+                if (prev == location.href) {
                     tryLoadRepo()
-                    aa()
-                }, 500)
-            })
+                    prev = location.href
+                }
+                aa()
+            }, 500)
         }
         aa()
         adapter.init($sidebar)
