@@ -18,7 +18,7 @@ $(document).ready(() => {
             .concat('https://github.com')
 
         const bitbucketUrls = ['https://bitbucket.org']
-        const oschinaUrls = ['http://git.oschina.net']
+        const oschinaUrls = ['http://git.oschina.net', 'https://git.oschina.net']
         const currentUrl = `${location.protocol}//${location.host}`
 
         if (oschinaUrls.indexOf(currentUrl) >= 0) {

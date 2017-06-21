@@ -12,6 +12,7 @@
     "https://bitbucket.org/*",
     "https://github.com/*",
     "http://git.oschina.net/*",
+    "https://git.oschina.net/*",
     "storage"
   ],
   "optional_permissions": [

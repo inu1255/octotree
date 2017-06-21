@@ -169,7 +169,7 @@ class Oschina extends PjaxAdapter {
     }
 
     _get(path, opts, cb) {
-        const host = 'http://git.oschina.net/api/v5'
+        const host = location.href.startsWith("https") ? 'https://git.oschina.net/api/v5' : 'http://git.oschina.net/api/v5'
         var url = `${host}/repos/${opts.repo.username}/${opts.repo.reponame}${path || ''}`
 
         if (opts.token) {

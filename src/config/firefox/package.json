@@ -16,6 +16,7 @@
       "https://api.github.com",
       "https://bitbucket.org",
       "http://git.oschina.net",
+      "https://git.oschina.net",
       "https://github.com"
     ],
     "private-browsing": true,
