@@ -43,6 +43,8 @@
 				<string>https://github.com/*</string>
 				<string>http://git.oschina.net/*</string>
 				<string>https://git.oschina.net/*</string>
+				<string>http://gitee.com/*</string>
+				<string>https://gitee.com/*</string>
 			</array>
 		</dict>
 		<key>Description</key>
@@ -58,6 +60,7 @@
 					<string>bitbucket.org</string>
 					<string>github.com</string>
 					<string>git.oschina.net</string>
+					<string>gitee.com</string>
 				</array>
 				<key>Include Secure Pages</key>
 				<true/>

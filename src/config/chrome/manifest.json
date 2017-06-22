@@ -13,6 +13,8 @@
     "https://github.com/*",
     "http://git.oschina.net/*",
     "https://git.oschina.net/*",
+    "http://gitee.com/*",
+    "https://gitee.com/*",
     "storage"
   ],
   "optional_permissions": [
