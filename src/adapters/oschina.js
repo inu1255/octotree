@@ -12,7 +12,7 @@ const OSC_RESERVED_USER_NAMES = [
 ]
 const OSC_RESERVED_REPO_NAMES = ['followers', 'following', 'repositories']
 const OSC_404_SEL = '#parallax_wrapper'
-const OSC_PJAX_CONTAINER_SEL = '.git-project-content-wrapper, .context-loader-container, [data-pjax-container]'
+const OSC_PJAX_CONTAINER_SEL = '#tree-holder'
 const OSC_CONTAINERS = '#git-header-nav'
 const OSC_RAW_CONTENT = 'body > pre'
 
@@ -72,7 +72,7 @@ class Oschina extends PjaxAdapter {
         $('html').css('margin-left', shouldPushLeft ? sidebarWidth : '')
         $containers.css('margin-left', shouldPushLeft ? SPACING : '')
         $containers.css('width', shouldPushLeft ? WIDTH : '')
-        $(".ui.right.floated.horizontal.list").css('margin-right', shouldPushLeft ? 210 : '')
+        // $(".ui.right.floated.horizontal.list").css('margin-right', shouldPushLeft ? 210 : '')
         $(".git-project-download-panel").css('margin-right', shouldPushLeft ? 240 : '')
     }
 
@@ -137,7 +137,7 @@ class Oschina extends PjaxAdapter {
     // @override
     selectFile(path) {
         const $pjaxContainer = $(OSC_PJAX_CONTAINER_SEL)
-        super.selectFile(path, { '$pjaxContainer': $pjaxContainer, fragment: ".git-project-content-wrapper" })
+        super.selectFile(path, { '$pjaxContainer': $pjaxContainer, fragment: OSC_PJAX_CONTAINER_SEL })
     }
 
     // @override
