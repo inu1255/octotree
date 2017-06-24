@@ -2,56 +2,75 @@
 [![OpenCollective](https://opencollective.com/octotree/sponsors/badge.svg)](#sponsors)
 
 ## Octotree
-fork from [https://github.com/buunguyen/octotree](https://github.com/buunguyen/octotree)
+Browser extension (Chrome, Firefox, Opera and Safari) to show a code tree on GitHub. Awesome for exploring project source without having to pull every single repository to your machine. Features:
 
-浏览器插件 (Chrome, Firefox, Opera and Safari) 在Gitee、GitHub上显示代码树。不用clone到本地就能查看项目结构. 特性:
+* Easy-to-navigate code tree, just like in IDEs
+* Fast browsing with pjax and Turbolinks
+* Support private repositories (see [instructions](#access-token))
+* Support GitHub Enterprise (Chrome and Opera only, see [instructions](#enterprise-urls))
 
-* 就像在IDE一样简单易用的代码树
-* 快速浏览文件，不刷新页面
-* 支持私人存储库 (Gitee登录后就可查看， Github 需要填写[access_token](#access-token))
+__GitLab is no longer supported__:
+As of version 2.1.0, Octotree no longer supports GitLab. There are 2 reasons for this. First, GitLab has changed so much recently that it would take a lot of effort to keep Octotree up to date. Second, the GitLab team has [told me](https://github.com/buunguyen/octotree/issues/265) they would build a tree feature in GitLab itself. I can't afford working on something knowing my effort will be irrelevant any time soon. That being said, if anyone wants to work on supporting the new GitLab, I'll gladly accept contributions to add back GitLab support.
 
-![Octotree on GitHub](docs/chrome-gitee.png)
 ![Octotree on GitHub](docs/chrome-github.png)
 
 
-### 在 Chrome, Firefox 和 Opera 上安装
-* 从 [Chrome Web Store](https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc), [Mozilla Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/octotree/) or [Opera Add-ons Store](https://addons.opera.com/en/extensions/details/octotree/) 安装GitCodeTree
-* 导航到任何Gitee、GitHub库(或者只是刷新这个页面作为一个例子)
-* 代码树应该显示在屏幕的左边
+### Install on Chrome, Firefox and Opera
+* Install Octotree from [Chrome Web Store](https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc), [Mozilla Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/octotree/) or [Opera Add-ons Store](https://addons.opera.com/en/extensions/details/octotree/)
+* Navigate to any GitHub repository (or just refresh this page as an example)
+* The code tree should show on the left-hand side of the screen
 
-### 在 Safari 上安装
+__Note__: to configure Octotree for GitHub Enteprise, see [instructions](#enterprise-urls)
 
-GitCodeTree在Safari gallery中不可用。相反,您必须使用预先构建的包或从源代码构建一个。
+### Install on Safari
 
-* 下载 [Safari 预先构建的包](http://git.oschina.net/inu1255/GitCodeTree/blob/master/dist/safari.safariextz?raw=true)
-* 双击并拖拽到Safari窗口
+Octotree is not available on the Safari gallery. Instead, you must use the prebuilt package or build one from source.
 
-### 从预先构建的软件包安装(所有浏览器)
+* Download the [Safari prebuilt package](https://github.com/buunguyen/octotree/blob/master/dist/safari.safariextz?raw=true)
+* Double-click or drag it to Safari
 
-预先构建的包可以从  [这里](https://github.com/buunguyen/octotree/tree/master/dist) 下载. 出于安全原因,请不要从其它地方下载.
+### Install from prebuilt packages (all browsers)
 
-__注意__: Firefox 43 + 需要签名。因此您需要从Mozilla商店安装GitCodeTree。出于某种原因,如果你想安装预先构建的包, 请参考 [disable sign-check](https://github.com/buunguyen/octotree/issues/220#issuecomment-166012724).
+Prebuilt packages are available in the  [dist](https://github.com/buunguyen/octotree/tree/master/dist) folder. For security reason, only download Octotree from this location.
 
-## 设置
+__Note__: Firefox 43+ requires add-ons to be signed. Therefore, you should install Octotree from the Mozilla store. For some reason if you want to install the prebuilt package instead, you have to [disable sign-check](https://github.com/buunguyen/octotree/issues/220#issuecomment-166012724).
+
+## Settings
 ### Access Token
 
-__注意__: GitCodeTree 访问令牌在浏览器本地存储并不会上传到任何地方。如果你想验证,查看源代码,开始 [请参考这里](http://git.oschina.net/inu1255/GitCodeTree/blob/master/src/view.options.js#L77).
+__Note for the paranoids (like me!)__: Octotree stores access tokens in your browser local storage and never transmits it anywhere. If you want to verify, check out the source, starting with [this line](https://github.com/buunguyen/octotree/blob/master/src/view.options.js#L77).
 
 #### GitHub
-GitCodeTree 使用 [GitHub API](https://developer.github.com/v3/) 检索代码树。默认情况下,它使未经身份验证的请求到GitHub API。然而,有两种情况时必须经过身份验证的请求:
+Octotree uses [GitHub API](https://developer.github.com/v3/) to retrieve repository metadata. By default, it makes unauthenticated requests to the GitHub API. However, there are two situations when requests must be authenticated:
 
-* 你访问一个私人存储库
-* 你超过 [请求频率限制限制](https://developer.github.com/v3/#rate-limiting)
+* You access a private repository
+* You exceed the [rate limit of unauthenticated requests](https://developer.github.com/v3/#rate-limiting)
 
-当这种情况发生时,GitCodeTree会询问你 [GitHub 私人 access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use). 如果你没有, [点此创建](https://github.com/settings/tokens/new), 然后复制粘贴到文本框中。注意,至少要允许"public_repo","repo" (如果你需要访问私人仓库).
+When that happens, Octotree will ask for your [GitHub personal access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use). If you don't already have one, [create one](https://github.com/settings/tokens/new), then copy and paste it into the textbox. Note that the minimal scopes that should be granted are `public_repo` and `repo` (if you need access to private repositories).
+
+#### Bitbucket
+Octotree uses [Bitbucket API](https://confluence.atlassian.com/bitbucket/repositories-endpoint-1-0-296092719.html) to retrieve repository metadata. By defualt, Octotree will ask for your [Bitbucket App password](https://confluence.atlassian.com/bitbucket/app-passwords-828781300.html). If you don't already have one, [create one](https://bitbucket.org/account/admin/app-passwords) (the minimal requirement is `Repositories`'s `Read` permission), then copy and paste it into the textbox.
+
+Note that Octotree extract your username from your current page by default for calling Bitbucket API. If fail to extract, Octotree will ask you for a token update, then you just need to prepend your username to the token, separated by a colon, i.e. `USERNAME:TOKEN`.
+
+### Enterprise URLs
+By default, Octotree only works on `github.com`. To support enterprise version (Chrome and Opera only), you must grant Octotree sufficient permissions. Follow these steps to do so:
+
+* Go to any GitHub repo
+* Open the Octotree settings panel
 
 ![Settings](docs/settings.jpg)
 
-### 其它
-* __热键__: GitCodeTree 使用 [keymaster](https://github.com/madrobby/keymaster) 注册热键。查看 [支持的按键](https://github.com/madrobby/keymaster#supported-keys).
-* __记得栏可见性__: 如果勾选此项,基于其可见性显示或隐藏GitCodeTree.
-* __在非代码页__: 如果勾选此项,让GitCodeTree等非代码页的问题和请求.
-* __一次加载整个树__: 如果勾选此项,负载和渲染整个代码树。为了避免长时间加载,这应该是不如果你经常使用非常大的回购.
+* Fill in the GitHub Enterprise URLs textbox, _one URL per line_
+* Click Save and accept the permission prompt
+* Navigate to your GitHub Enterprise site
+* You might be asked to create an [access token](#access-token)
+
+### Others
+* __Hotkeys__: Octotree uses [keymaster](https://github.com/madrobby/keymaster) to register hotkeys. Checkout the [supported keys](https://github.com/madrobby/keymaster#supported-keys).
+* __Remember sidebar visibility__: if checked, show or hide Octotree based on its last visibility.
+* __Show in non-code pages__: if checked, allow Octotree to show in non-code pages such as Issues and Pull Requests.
+* __Load entire tree at once__: if checked, load and render the entire code tree at once. To avoid long loading, this should be unchecked if you frequently work with very large repos.
 
 ## Credits
 * [@crashbell](https://github.com/crashbell) for helping with GitLab and others

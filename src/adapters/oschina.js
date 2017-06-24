@@ -171,19 +171,34 @@ class Oschina extends PjaxAdapter {
     _get(path, opts, cb) {
         const host = location.href.startsWith("https") ? 'https://git.oschina.net/api/v5' : 'http://git.oschina.net/api/v5'
         var url = `${host}/repos/${opts.repo.username}/${opts.repo.reponame}${path || ''}`
+        var request = (retry) => {
+            if (!retry && opts.token) {
+                url += (url.indexOf("?") >= 0 ? "&" : "?") + `access_token=${opts.token}`
+            }
+            const cfg = {
+                url,
+                method: 'GET',
+                cache: false,
+                xhrFields: {
+                    withCredentials: true
+                },
+            }
 
-        if (opts.token) {
-            url += (url.indexOf("?") >= 0 ? "&" : "?") + `access_token=${opts.token}`
+            $.ajax(cfg)
+                .done((data) => {
+                    if (path && path.indexOf('/git/trees') === 0 && data.truncated) {
+                        this._handleError({ status: 206 }, cb)
+                    }
+                    else cb(null, data)
+                })
+                .fail((jqXHR) => {
+                    if (retry) {
+                        request(false)
+                    } else {
+                        this._handleError(jqXHR, cb)
+                    }
+                })
         }
-        const cfg = { url, method: 'GET', cache: false }
-
-        $.ajax(cfg)
-            .done((data) => {
-                if (path && path.indexOf('/git/trees') === 0 && data.truncated) {
-                    this._handleError({ status: 206 }, cb)
-                }
-                else cb(null, data)
-            })
-            .fail((jqXHR) => this._handleError(jqXHR, cb))
+        request(true)
     }
 }

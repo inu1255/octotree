@@ -109,33 +109,30 @@ class Adapter {
 
         switch (jqXHR.status) {
         case 0:
-            error = 'Connection error'
+            error = '连接错误'
             message =
-                `Cannot connect to website.
-           If your network connection to this website is fine, maybe there is an outage of the API.
-           Please try again later.`
+                `无法连接到网站. 如果你的网络连接这个网站很好,也许有一个中断的API. 请稍后再试.`
             needAuth = false
             break
         case 206:
-            error = 'Repo too large'
+            error = '仓库太大'
             message =
-                `This repository is too large to be retrieved at once.
-           If you frequently work with this repository, go to Settings and uncheck the "Load entire tree at once" option.`
+                `这个仓库检索太大. 如果你经常使用这个库,去设置和取消“立即加载整个仓库”的选项.`
             break
         case 401:
-            error = 'Invalid token'
+            error = '无效的token'
             message =
-                `The token is invalid.
-           Follow <a href="${this.getCreateTokenUrl()}" target="_blank">this link</a>
-           to create a new token and paste it below.`
+                `token是无效的.
+            <a href="${this.getCreateTokenUrl()}" target="_blank">点此</a>
+           去创建一个access token并粘贴到下面.`
             needAuth = true
             break
         case 409:
-            error = 'Empty repository'
-            message = 'This repository is empty.'
+            error = '空仓库'
+            message = '空仓库.'
             break
         case 404:
-            error = 'Private repository'
+            error = '私人仓库'
             message =
                 `访问私有仓库需要access token.
            <a href="${this.getCreateTokenUrl()}" target="_blank">点些链接</a>
@@ -145,15 +142,15 @@ class Adapter {
         case 403:
             if (~jqXHR.getAllResponseHeaders().indexOf('X-RateLimit-Remaining: 0')) {
                 // It's kinda specific for GitHub
-                error = 'API limit exceeded'
+                error = 'API超过限制'
                 message =
-                    `You have exceeded the GitHub API hourly limit and need GitHub access token
-             to make extra requests. Follow <a href="${this.getCreateTokenUrl()}" target="_blank">this link</a>
-             to create one and paste it below.`
+                    `你已经超过GitHub API小时限制和需要GitHub访问令牌进行额外的请求.
+                  <a href="${this.getCreateTokenUrl()}" target="_blank">点此</a>
+                   去创建一个access token并粘贴到下面.`
                 needAuth = true
                 break
             } else {
-                error = 'Forbidden'
+                error = '禁止访问'
                 message =
                     `禁止访问.
                你可能需要提供 access token.
@@ -168,7 +165,7 @@ class Adapter {
             break
         }
         cb({
-            error: `Error: ${error}`,
+            error: `错误信息: ${error}`,
             message: message,
             needAuth: needAuth
         })
@@ -189,7 +186,7 @@ class Adapter {
      * @api protected
      */
     getCssClass() {
-        throw new Error('Not implemented')
+        throw new Error('没有实现的方法')
     }
 
     /**
@@ -214,7 +211,7 @@ class Adapter {
      * @api public
      */
     loadCodeTree(opts, cb) {
-        throw new Error('Not implemented')
+        throw new Error('没有实现的方法')
     }
 
     /**
@@ -222,7 +219,7 @@ class Adapter {
      * @api public
      */
     getCreateTokenUrl() {
-        throw new Error('Not implemented')
+        throw new Error('没有实现的方法')
     }
 
     /**
@@ -230,7 +227,7 @@ class Adapter {
      * @api public
      */
     updateLayout(togglerVisible, sidebarVisible, sidebarWidth) {
-        throw new Error('Not implemented')
+        throw new Error('没有实现的方法')
     }
 
     /**
@@ -238,7 +235,7 @@ class Adapter {
      * @api public
      */
     getRepoFromPath(showInNonCodePage, currentRepo, token, cb) {
-        throw new Error('Not implemented')
+        throw new Error('没有实现的方法')
     }
 
     /**
@@ -282,7 +279,7 @@ class Adapter {
      * @api protected
      */
     _getTree(path, opts, cb) {
-        throw new Error('Not implemented')
+        throw new Error('没有实现的方法')
     }
 
     /**
@@ -291,7 +288,7 @@ class Adapter {
      * @api protected
      */
     _getSubmodules(tree, opts, cb) {
-        throw new Error('Not implemented')
+        throw new Error('没有实现的方法')
     }
 
     /**
