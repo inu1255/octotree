@@ -119,7 +119,7 @@ gulp.task('firefox', ['firefox:js'], () => {
 })
 
 gulp.task('firefox:xpi', (cb) => {
-    $.run('cd ./tmp/firefox && ../../node_modules/.bin/jpm xpi && mkdir -p ../../dist && mv octotree.xpi ../../dist/firefox.xpi').exec(cb)
+    $.run('cd ./tmp/firefox && ../../node_modules/.bin/jpm xpi && mkdir -p ../../dist && mv GitCodeTree.xpi ../../dist/firefox.xpi').exec(cb)
 })
 
 // Safari

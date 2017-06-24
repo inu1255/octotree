@@ -24,7 +24,7 @@ fork from [https://github.com/buunguyen/octotree](https://github.com/buunguyen/o
 GitCodeTree在Safari gallery中不可用。相反,您必须使用预先构建的包或从源代码构建一个。
 
 * 下载 [Safari 预先构建的包](http://git.oschina.net/inu1255/GitCodeTree/blob/master/dist/safari.safariextz?raw=true)
-* 双击并拖拽到Safari窗口
+* 双击或者拖拽到Safari窗口
 
 ### 从预先构建的软件包安装(所有浏览器)
 
