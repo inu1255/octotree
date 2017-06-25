@@ -1,8 +1,22 @@
 [![OpenCollective](https://opencollective.com/octotree/backers/badge.svg)](#backers) 
 [![OpenCollective](https://opencollective.com/octotree/sponsors/badge.svg)](#sponsors)
 
-## Octotree
+## GitCodeTree
 fork from [https://github.com/buunguyen/octotree](https://github.com/buunguyen/octotree)
+
+### 二次开发
+
+* 将项目clone到本地
+* 在`src/adapters/`中为你想要支持的网站添加一个类(可复制`src/adapters/github.js`并修改)
+* 根据情况实现 [`_getTree`](http://git.oschina.net/inu1255/GitCodeTree/blob/master/src/adapters/github.js#L149-154) 或 `_get` 方法,用于获取项目树
+* 实现 [`updateLayout`](http://git.oschina.net/inu1255/GitCodeTree/blob/master/src/adapters/github.js#L65-73) 方法，用于修改页面布局
+* 实现 [`selectFile`](http://git.oschina.net/inu1255/GitCodeTree/blob/master/src/adapters/github.js#L135-138) 指定pjax替换的html元素,用于不刷新切换文件
+* 在 [`src/octotree.js`](http://git.oschina.net/inu1255/GitCodeTree/blob/master/src/octotree.js#L30)中添加你修改好的类
+* 在 `src/config/` 插件配置文件中添加你想要支持的网站
+* __chrome中调试__: 使用`gulp chrome`命令，打开[chrome://extensions/](chrome://extensions/)，点击`加载已解压的扩展程度`，选择`src/tmp/chrome`
+* __打包__: 使用 `gulp dist` 命令打包
+
+## 介绍
 
 浏览器插件 (Chrome, Firefox, Opera and Safari) 在Gitee、GitHub上显示代码树。不用clone到本地就能查看项目结构. 特性:
 
@@ -10,25 +24,25 @@ fork from [https://github.com/buunguyen/octotree](https://github.com/buunguyen/o
 * 快速浏览文件，不刷新页面
 * 支持私人存储库 (Gitee登录后就可查看， Github 需要填写[access_token](#access-token))
 
-![Octotree on GitHub](docs/chrome-gitee.png)
-![Octotree on GitHub](docs/chrome-github.png)
+![GitCodeTree on Gitee](docs/chrome-gitee.png)
+![GitCodeTree on GitHub](docs/chrome-github.png)
 
 
 ### 在 Chrome, Firefox 和 Opera 上安装
-* 从 [Chrome Web Store](https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc), [Mozilla Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/octotree/) or [Opera Add-ons Store](https://addons.opera.com/en/extensions/details/octotree/) 安装GitCodeTree
-* 导航到任何Gitee、GitHub库(或者只是刷新这个页面作为一个例子)
-* 代码树应该显示在屏幕的左边
+* 从 [Chrome Web Store](https://chrome.google.com/webstore/detail/gitcodetree/bkhaagjahfmjljalopjnoealnfndnagc), [Mozilla Add-ons Store](https://addons.mozilla.org/zh-CN/firefox/addon/GitCodeTree/) or [Opera Add-ons Store](https://addons.opera.com/en/extensions/details/gitcodetree/) 安装GitCodeTree
+* 导航到任何Gitee、GitHub库(或者刷新这个页面作为一个例子)
+* 代码树将显示在页面左边
 
 ### 在 Safari 上安装
 
-GitCodeTree在Safari gallery中不可用。相反,您必须使用预先构建的包或从源代码构建一个。
+GitCodeTree在Safari gallery中不可用；所以,您必须使用预先构建的包 或者 从源代码构建一个。
 
 * 下载 [Safari 预先构建的包](http://git.oschina.net/inu1255/GitCodeTree/blob/master/dist/safari.safariextz?raw=true)
 * 双击或者拖拽到Safari窗口
 
-### 从预先构建的软件包安装(所有浏览器)
+### 从预先构建的包安装(所有浏览器)
 
-预先构建的包可以从  [这里](https://github.com/buunguyen/octotree/tree/master/dist) 下载. 出于安全原因,请不要从其它地方下载.
+预先构建的包可以从  [这里](http://git.oschina.net/inu1255/GitCodeTree/tree/master/dist) 下载. 出于安全原因,请不要从其它地方下载.
 
 __注意__: Firefox 43 + 需要签名。因此您需要从Mozilla商店安装GitCodeTree。出于某种原因,如果你想安装预先构建的包, 请参考 [disable sign-check](https://github.com/buunguyen/octotree/issues/220#issuecomment-166012724).
 
@@ -51,7 +65,7 @@ GitCodeTree 使用 [GitHub API](https://developer.github.com/v3/) 检索代码�
 * __热键__: GitCodeTree 使用 [keymaster](https://github.com/madrobby/keymaster) 注册热键。查看 [支持的按键](https://github.com/madrobby/keymaster#supported-keys).
 * __记得栏可见性__: 如果勾选此项,基于其可见性显示或隐藏GitCodeTree.
 * __在非代码页__: 如果勾选此项,让GitCodeTree等非代码页的问题和请求.
-* __一次加载整个树__: 如果勾选此项,负载和渲染整个代码树。为了避免长时间加载,这应该是不如果你经常使用非常大的回购.
+* __一次加载整个树__: (仅支持github) 如果勾选此项,进入项目页面时GitCodeTree将加载整个项目树。如果您经常访问非常大的项目，为了避免长时间加载,请勿勾选此项.
 
 ## Credits
 * [@crashbell](https://github.com/crashbell) for helping with GitLab and others
