@@ -29,7 +29,7 @@ fork from [https://github.com/buunguyen/octotree](https://github.com/buunguyen/o
 
 
 ### 在 Chrome, Firefox 和 Opera 上安装
-* 从 [Chrome Web Store](https://chrome.google.com/webstore/detail/gitcodetree/bkhaagjahfmjljalopjnoealnfndnagc), [Mozilla Add-ons Store](https://addons.mozilla.org/zh-CN/firefox/addon/GitCodeTree/) or [Opera Add-ons Store](https://addons.opera.com/en/extensions/details/gitcodetree/) 安装GitCodeTree
+* 从 [Chrome Web Store](https://chrome.google.com/webstore/detail/gitcodetree/inaaldjpdbkaodlmdcplgpoibohcmmlj), [Mozilla Add-ons Store](https://addons.mozilla.org/zh-CN/firefox/addon/GitCodeTree/) or [Opera Add-ons Store](https://addons.opera.com/en/extensions/details/gitcodetree/) 安装GitCodeTree
 * 导航到任何Gitee、GitHub库(或者刷新这个页面作为一个例子)
 * 代码树将显示在页面左边
 
