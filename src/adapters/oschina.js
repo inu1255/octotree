@@ -58,7 +58,7 @@ class Oschina extends PjaxAdapter {
 
     // @override
     getCreateTokenUrl() {
-        return `http://git.oschina.net/api/v5/swagger`
+        return `https://gitee.com/api/v5/swagger`
     }
 
     // @override
