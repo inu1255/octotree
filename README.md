@@ -8,10 +8,10 @@ fork from [https://github.com/buunguyen/octotree](https://github.com/buunguyen/o
 
 * 将项目clone到本地
 * 在`src/adapters/`中为你想要支持的网站添加一个类(可复制`src/adapters/github.js`并修改)
-* 根据情况实现 [`_getTree`](https//gitee.com/inu1255/GitCodeTree/blob/master/src/adapters/github.js#L149-154) 或 `_get` 方法,用于获取项目树
-* 实现 [`updateLayout`](https//gitee.com/inu1255/GitCodeTree/blob/master/src/adapters/github.js#L65-73) 方法，用于修改页面布局
-* 实现 [`selectFile`](https//gitee.com/inu1255/GitCodeTree/blob/master/src/adapters/github.js#L135-138) 指定pjax替换的html元素,用于不刷新切换文件
-* 在 [`src/octotree.js`](https//gitee.com/inu1255/GitCodeTree/blob/master/src/octotree.js#L30)中添加你修改好的类
+* 根据情况实现 [`_getTree`](https://gitee.com/inu1255/GitCodeTree/blob/master/src/adapters/github.js#L149-154) 或 `_get` 方法,用于获取项目树
+* 实现 [`updateLayout`](https://gitee.com/inu1255/GitCodeTree/blob/master/src/adapters/github.js#L65-73) 方法，用于修改页面布局
+* 实现 [`selectFile`](https://gitee.com/inu1255/GitCodeTree/blob/master/src/adapters/github.js#L135-138) 指定pjax替换的html元素,用于不刷新切换文件
+* 在 [`src/octotree.js`](https://gitee.com/inu1255/GitCodeTree/blob/master/src/octotree.js#L30)中添加你修改好的类
 * 在 `src/config/` 插件配置文件中添加你想要支持的网站
 * __chrome中调试__: 使用`gulp chrome`命令，打开[chrome://extensions/](chrome://extensions/)，点击`加载已解压的扩展程度`，选择`src/tmp/chrome`
 * __打包__: 使用 `gulp dist` 命令打包
@@ -37,19 +37,19 @@ fork from [https://github.com/buunguyen/octotree](https://github.com/buunguyen/o
 
 GitCodeTree在Safari gallery中不可用；所以,您必须使用预先构建的包 或者 从源代码构建一个。
 
-* 下载 [Safari 预先构建的包](https//gitee.com/inu1255/GitCodeTree/blob/master/dist/safari.safariextz?raw=true)
+* 下载 [Safari 预先构建的包](https://gitee.com/inu1255/GitCodeTree/blob/master/dist/safari.safariextz?raw=true)
 * 双击或者拖拽到Safari窗口
 
 ### 从预先构建的包安装(所有浏览器)
 
-预先构建的包可以从  [这里](https//gitee.com/inu1255/GitCodeTree/tree/master/dist) 下载. 出于安全原因,请不要从其它地方下载.
+预先构建的包可以从  [这里](https://gitee.com/inu1255/GitCodeTree/tree/master/dist) 下载. 出于安全原因,请不要从其它地方下载.
 
 __注意__: Firefox 43 + 需要签名。因此您需要从Mozilla商店安装GitCodeTree。出于某种原因,如果你想安装预先构建的包, 请参考 [disable sign-check](https://github.com/buunguyen/octotree/issues/220#issuecomment-166012724).
 
 ## 设置
 ### Access Token
 
-__注意__: GitCodeTree 访问令牌在浏览器本地存储并不会上传到任何地方。如果你想验证,查看源代码,开始 [请参考这里](https//gitee.com/inu1255/GitCodeTree/blob/master/src/view.options.js#L77).
+__注意__: GitCodeTree 访问令牌在浏览器本地存储并不会上传到任何地方。如果你想验证,查看源代码,开始 [请参考这里](https://gitee.com/inu1255/GitCodeTree/blob/master/src/view.options.js#L77).
 
 #### GitHub
 GitCodeTree 使用 [GitHub API](https://developer.github.com/v3/) 检索代码树。默认情况下,它使未经身份验证的请求到GitHub API。然而,有两种情况时必须经过身份验证的请求:
