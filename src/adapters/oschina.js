@@ -1,16 +1,5 @@
-const OSC_RESERVED_USER_NAMES = [
-    'settings', 'orgs', 'organizations',
-    'site', 'blog', 'about', 'explore',
-    'styleguide', 'showcases', 'trending',
-    'stars', 'dashboard', 'notifications',
-    'search', 'developer', 'account',
-    'pulls', 'issues', 'features', 'contact',
-    'security', 'join', 'login', 'watching',
-    'new', 'integrations', 'gist', 'business',
-    'mirrors', 'open-source', 'personal',
-    'pricing'
-]
-const OSC_RESERVED_REPO_NAMES = ['followers', 'following', 'repositories']
+const OSC_RESERVED_USER_NAMES = []
+const OSC_RESERVED_REPO_NAMES = []
 const OSC_404_SEL = '#parallax_wrapper'
 const OSC_PJAX_CONTAINER_SEL = '#tree-holder'
 const OSC_CONTAINERS = '#git-header-nav'

@@ -2,7 +2,7 @@
   "name": "GitCodeTree",
   "title": "GitCodeTree",
   "id": "929909260@qq.com",
-  "description": "Code tree for Gitee、GitHub",
+  "description": "基于octotree的[码云](http://gitee.com)文件树插件",
   "author": "inu1255",
   "homepage": "http://git.oschina.net/inu1255/GitCodeTree",
   "main": "lib/firefox",
