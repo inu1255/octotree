@@ -147,19 +147,19 @@ class Oschina extends PjaxAdapter {
 
     // @override
     _getSubmodules(tree, opts, cb) {
-        const item = tree.filter((item) => /^\.gitmodules$/i.test(item.path))[0]
-        if (!item) return cb()
-
-        this._get(`/git/blobs/${item.sha}`, opts, (err, res) => {
-            if (err) return cb(err)
-            const data = atob(res.content.replace(/\n/g, ''))
-            cb(null, parseGitmodules(data))
-        })
+        cb()
+    // const item = tree.filter((item) => /^\.gitmodules$/i.test(item.path))[0]
+    // if (!item) return cb()
+    // this._get(`/git/blobs/${item.sha}`, opts, (err, res) => {
+    //     if (err) return cb(err)
+    //     const data = atob(res.content.replace(/\n/g, ''))
+    //     cb(null, parseGitmodules(data))
+    // })
     }
 
     _get(path, opts, cb) {
-        const host = location.href.startsWith("https") ? 'https://git.oschina.net/api/v5' : 'http://git.oschina.net/api/v5'
-        var url = `${host}/repos/${opts.repo.username}/${opts.repo.reponame}${path || ''}`
+        const host = location.protocol + '//' + location.host
+        var url = `${host}/api/v5/repos/${opts.repo.username}/${opts.repo.reponame}${path || ''}`
         var request = (retry) => {
             if (!retry && opts.token) {
                 url += (url.indexOf("?") >= 0 ? "&" : "?") + `access_token=${opts.token}`
