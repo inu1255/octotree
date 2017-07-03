@@ -122,7 +122,7 @@ class Adapter {
         case 401:
             error = '无效的token'
             message =
-                `token是无效的.
+                `token是无效的.<br/>
             <a href="${this.getCreateTokenUrl()}" target="_blank">点此</a>
            去创建一个access token并粘贴到下面.`
             needAuth = true
@@ -134,8 +134,8 @@ class Adapter {
         case 404:
             error = '私人仓库'
             message =
-                `访问私有仓库需要access token.
-           <a href="${this.getCreateTokenUrl()}" target="_blank">点些链接</a>
+                `访问私有仓库需要access token.<br/>
+           <a href="${this.getCreateTokenUrl()}" target="_blank">点此链接</a>
            去创建一个access token并粘贴到下面.`
             needAuth = true
             break
@@ -144,7 +144,7 @@ class Adapter {
                 // It's kinda specific for GitHub
                 error = 'API超过限制'
                 message =
-                    `你已经超过GitHub API小时限制和需要GitHub访问令牌进行额外的请求.
+                    `你已经超过GitHub API小时限制和需要GitHub访问令牌进行额外的请求.<br/>
                   <a href="${this.getCreateTokenUrl()}" target="_blank">点此</a>
                    去创建一个access token并粘贴到下面.`
                 needAuth = true
@@ -153,8 +153,8 @@ class Adapter {
                 error = '禁止访问'
                 message =
                     `禁止访问.
-               你可能需要提供 access token.
-             <a href="${this.getCreateTokenUrl()}" target="_blank">点些链接</a>
+               你可能需要提供 access token.<br/>
+             <a href="${this.getCreateTokenUrl()}" target="_blank">点此链接</a>
              去创建一个access token并粘贴到下面.`
                 needAuth = true
                 break
